@@ -1,28 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import api from '../services/api';
+import React from 'react';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import Footer from '../components/Footer';
+import '../styles/main.css';
 
 function Home() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    api.get('/posts')  // Example endpoint from backend
-      .then(res => setPosts(res.data))
-      .catch(err => console.error(err));
-  }, []);
-
   return (
-    <div>
-      <h2>Blog Posts</h2>
-      {posts.length === 0 ? (
-        <p>No posts available.</p>
-      ) : (
-        <ul>
-          {posts.map(post => (
-            <li key={post.id}>{post.title}</li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <>
+      <Header />
+      <Hero />
+      <Footer />
+    </>
   );
 }
 
