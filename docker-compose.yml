@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  server:
+    build: ./server
+    container_name: blog-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    depends_on:
+      - client
+
+  client:
+    build: ./client
+    container_name: blog-frontend
+    ports:
+      - "3000:80"
+
+# optional if using local DB before AWS
+#  mongo:
+#    image: mongo
+#    ports:
+#      - "27017:27017"
+
