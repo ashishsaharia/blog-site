@@ -1,6 +1,6 @@
 # Node dependencies
 node_modules/
-
+*.odt
 # React build folder
 client/build/
 
