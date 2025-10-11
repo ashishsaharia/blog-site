@@ -1,0 +1,22 @@
+/* variables.css */
+:root {
+  /* === Foundation Colors === */
+  --color-bg: #F9F9F9;           /* Paper White */
+  --color-text: #1C1C1C;         /* Body Text Black */
+  --color-text-secondary: #777777; /* Secondary Text */
+  --color-divider: #F3F3F3;      /* Light Grey */
+
+  /* === Accent Colors === */
+  --color-primary: #20B2AA;      /* Teal / Light Sea Green */
+  --color-accent: #FF7F50;       /* Coral (Warm Accent) */
+
+  /* === Font System === */
+  --font-body: 'Merriweather', serif;  /* for body readability */
+  --font-heading: 'Inter', sans-serif; /* for modern headlines */
+
+  /* === Layout Tokens === */
+  --max-content-width: 720px;
+  --spacing: 1.5rem;
+  --border-radius: 0.5rem;
+}
+

@@ -1,9 +1,14 @@
 import React from 'react';
-import Home from './pages/Home';
+import HeroHeaderButton from './components/HeroHeaderButton.jsx'
 
 function App() {
-  return <Home />;
+	return(
+	<div> 
+		<HeroHeaderButton name = { "Click me!"}></HeroHeaderButton>	
+	</div>
+	)
 }
+
 
 export default App;
 
