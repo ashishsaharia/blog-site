@@ -1,7 +1,7 @@
 
 #one{
   display: inline-block;
-  background-color: var(--color-accent-5);
+  background-color: var(--color-accent-4);
   color: var(--color-text);
   font-family: var(--font-heading);
   padding: 0.75rem 1.5rem;

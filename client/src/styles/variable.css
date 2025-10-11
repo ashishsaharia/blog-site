@@ -1,16 +1,15 @@
 :root {
   /* === Foundation Colors === */
   --color-bg: #F9F9F9;             /* Paper White / Background */
-  --color-text: #1C1C1C;           /* Body Text Black */
+  --color-text: #0D0D0D;           /* Main Text */
   --color-text-secondary: #777777; /* Secondary Text */
   --color-divider: #E0E0E0;        /* Light Grey Divider */
 
   /* === Accent Colors === */
-  --color-accent-1: #32378C;       /* Deep Blue - Primary Buttons/Highlights */
-  --color-accent-2: #4BBF9E;       /* Teal - Secondary Buttons/Highlights */
-  --color-accent-3: #A6A04E;       /* Olive - Subtle Accents/Icons */
-  --color-accent-4: #F2811D;       /* Orange - Call to Action */
-  --color-accent-5: #F25A38;       /* Red/Coral - Alerts/Error */
+  --color-accent-1: #32378C;       /* Deep Blue - Primary Highlights / Headings */
+  --color-accent-2: #F2AA52;       /* Soft Orange / Gold - Secondary Highlights */
+  --color-accent-3: #F2811D;       /* Vibrant Orange - Primary CTA / Buttons */
+  --color-accent-4: #F25A38;       /* Red / Coral - Alerts / Secondary CTA */
 
   /* === Font System === */
   --font-body: 'Merriweather', serif;  
