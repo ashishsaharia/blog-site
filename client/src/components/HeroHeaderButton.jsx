@@ -1,11 +1,4 @@
-export default function HeroHeaderButton({name})
-{
-	return (
-		<>
-			<button id = {"hHeaderButton"} className = {"button"}>
-				{name}
-			</button>				
-		</>
-	)
-}
+export default function  HeroHeaderButton  ({ id, name })  {
+  return <button id={id} className="button">{name}</button>;
+};
 

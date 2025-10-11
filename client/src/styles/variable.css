@@ -1,18 +1,20 @@
-/* variables.css */
 :root {
   /* === Foundation Colors === */
-  --color-bg: #F9F9F9;           /* Paper White */
-  --color-text: #1C1C1C;         /* Body Text Black */
+  --color-bg: #F9F9F9;             /* Paper White / Background */
+  --color-text: #1C1C1C;           /* Body Text Black */
   --color-text-secondary: #777777; /* Secondary Text */
-  --color-divider: #F3F3F3;      /* Light Grey */
+  --color-divider: #E0E0E0;        /* Light Grey Divider */
 
   /* === Accent Colors === */
-  --color-primary: #20B2AA;      /* Teal / Light Sea Green */
-  --color-accent: #FF7F50;       /* Coral (Warm Accent) */
+  --color-accent-1: #32378C;       /* Deep Blue - Primary Buttons/Highlights */
+  --color-accent-2: #4BBF9E;       /* Teal - Secondary Buttons/Highlights */
+  --color-accent-3: #A6A04E;       /* Olive - Subtle Accents/Icons */
+  --color-accent-4: #F2811D;       /* Orange - Call to Action */
+  --color-accent-5: #F25A38;       /* Red/Coral - Alerts/Error */
 
   /* === Font System === */
-  --font-body: 'Merriweather', serif;  /* for body readability */
-  --font-heading: 'Inter', sans-serif; /* for modern headlines */
+  --font-body: 'Merriweather', serif;  
+  --font-heading: 'Inter', sans-serif; 
 
   /* === Layout Tokens === */
   --max-content-width: 720px;
