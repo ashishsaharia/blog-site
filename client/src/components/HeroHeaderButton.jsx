@@ -1,4 +1,17 @@
-export default function  HeroHeaderButton  ({ id, name })  {
-  return <button id={id} className="button">{name}</button>;
+// HeroHeaderButton.jsx
+import React from "react";
+
+const HeroHeaderButton = ({ name, className = "", onClick, type = "button" }) => {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={`button ${className}`}
+    >
+      {name}
+    </button>
+  );
 };
+
+export default HeroHeaderButton;
 

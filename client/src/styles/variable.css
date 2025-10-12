@@ -1,3 +1,5 @@
+/* variable.css */
+
 :root {
   /* === Foundation Colors === */
   --color-bg: #F9F9F9;             /* Paper White / Background */
@@ -6,18 +8,28 @@
   --color-divider: #E0E0E0;        /* Light Grey Divider */
 
   /* === Accent Colors === */
-  --color-accent-1: #32378C;       /* Deep Blue - Primary Highlights / Headings */
-  --color-accent-2: #F2AA52;       /* Soft Orange / Gold - Secondary Highlights */
-  --color-accent-3: #F2811D;       /* Vibrant Orange - Primary CTA / Buttons */
-  --color-accent-4: #F25A38;       /* Red / Coral - Alerts / Secondary CTA */
+  --color-primary: #32378C;        /* Deep Blue - Headings / Primary */
+  --color-secondary: #F2AA52;      /* Gold - Secondary Highlights */
+  --color-accent: #F2811D;         /* Orange - Buttons / CTAs */
+  --color-danger: #F25A38;         /* Coral Red - Alerts */
 
   /* === Font System === */
-  --font-body: 'Merriweather', serif;  
-  --font-heading: 'Inter', sans-serif; 
+  --font-heading: "Playfair Display", "Georgia", serif;
+  --font-body: "Inter", "Helvetica Neue", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
   /* === Layout Tokens === */
   --max-content-width: 720px;
   --spacing: 1.5rem;
-  --border-radius: 0.5rem;
+  --border-radius: 1.8rem;
+
+  /* === Type Scale === */
+  --text-xs: 0.85rem;
+  --text-sm: 0.95rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 3rem;
 }
 
