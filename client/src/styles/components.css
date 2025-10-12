@@ -22,7 +22,6 @@
 	border-radius : var(--border-radius);
 	color: white;
 	margin-left: 2.5rem;
-	margin-right : 2rem;
 }
 
 #heroHeader{
@@ -40,8 +39,25 @@
   max-width: 100px;   /* constrain max width */
   object-fit: contain;
   margin : 0;
-  margin-left : 2rem;
   border-bottom : 3px solid black;
 }
 
+#heroHeaderLeft{
+  margin-left : 4rem;
+}
 
+#heroHeaderRight{
+	margin-right : 4rem;
+}
+
+#heroFooter{
+	display: flex; 
+	flex-direction : row;
+	justify-content : space-around;
+	align-items : center
+}
+
+.footerButton{
+	color : var(--color-text-secondary);
+	font-size : 0.8rem;
+}
