@@ -1,4 +1,5 @@
 import HeroHeaderButton from './HeroHeaderButton.jsx'
+import hero from '../assets/hero.png';
 
 
 const HeroSection = () => {
@@ -12,7 +13,7 @@ const HeroSection = () => {
 				</div>	
 			</div>
 			<div className = "heroRight">
-				
+				<img src = {hero}/>	
 			</div>
 		</section>
 	)
