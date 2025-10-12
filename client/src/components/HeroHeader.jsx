@@ -11,7 +11,7 @@ const HeroHeader = () => {
         <HeroHeaderButton name="About" />
         <HeroHeaderButton name="Sign In" />
         <HeroHeaderButton name="Write" />
-        <HeroHeaderButton className="get-starte-button-one" name="Get Started" />
+        <HeroHeaderButton className="get-start-button-one" name="Get Started" />
       </div>
     </header>
   );

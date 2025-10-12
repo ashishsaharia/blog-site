@@ -17,7 +17,8 @@
 }
 
 
-.get-starte-button-one{
+.get-start-button-one{
+
 	background-color : black; 
 	border-radius : var(--border-radius);
 	color: white;
@@ -54,10 +55,54 @@
 	display: flex; 
 	flex-direction : row;
 	justify-content : space-around;
-	align-items : center
+	align-items : center;
+	border-top : 1px solid black;
 }
 
 .footerButton{
 	color : var(--color-text-secondary);
-	font-size : 0.8rem;
+	font-size : var(--text-xs);
+}
+
+
+.heroPage{
+ display: grid;
+  grid-template-rows: 90px 1fr 60px; /* header, middle, footer */
+  height: 100vh; /* full viewport height */
+}
+
+.heroHeading{
+	font-size : var(--text-4xl);
+	margin-top : -5px;
+}
+
+.heroSection{
+	display : flex; 
+	flex-direction : row;
+	justify-content : center;
+}
+
+.heroLeft{
+	flex : 2;
+	align-items : center;
+	display : flex; 
+	flex-direction : column;
+	justify-content : center;
+}
+.heroRight {
+	flex : 1;
+}
+
+.heroTagLine{
+	padding : 0px;
+	font-weight : 200;
+}
+
+.get-start-button-two{
+
+	background-color : black; 
+	border-radius : var(--border-radius);
+	color: white;
+	font-size : var(--text-lg);
+	margin-top : 2rem;
 }

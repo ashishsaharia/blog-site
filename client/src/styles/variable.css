@@ -2,7 +2,7 @@
 
 :root {
   /* === Foundation Colors === */
-  --color-bg: #F9F9F9;             /* Paper White / Background */
+  --color-bg: #f7f4ed;             /* Paper White / Background */
   --color-text: #0D0D0D;           /* Main Text */
   --color-text-secondary: #777777; /* Secondary Text */
   --color-divider: #E0E0E0;        /* Light Grey Divider */
@@ -31,5 +31,6 @@
   --text-xl: 1.75rem;
   --text-2xl: 2.25rem;
   --text-3xl: 3rem;
+  --text-4xl: 5.5rem;
 }
 
