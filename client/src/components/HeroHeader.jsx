@@ -1,7 +1,7 @@
 import HeroHeaderButton from "./HeroHeaderButton.jsx";
 import logo from "../assets/logo.png";
 
-const HeroHeader = () => {
+const HeroHeader = ({onClickButton}) => {
   return (
     <header id="heroHeader" className="header">
       <div id="heroHeaderLeft">
@@ -11,7 +11,7 @@ const HeroHeader = () => {
         <HeroHeaderButton name="About" />
         <HeroHeaderButton name="Sign In" />
         <HeroHeaderButton name="Write" />
-        <HeroHeaderButton className="get-start-button-one" name="Get Started" />
+        <HeroHeaderButton onClickButton = {onClickButton} className="get-start-button-one" name="Get Started" />
       </div>
     </header>
   );

@@ -1,11 +1,11 @@
 // HeroHeaderButton.jsx
 import React from "react";
 
-const HeroHeaderButton = ({ name, className = "", onClick, type = "button" }) => {
+const HeroHeaderButton = ({ name, className = "", onClickButton, type = "button" }) => {
   return (
     <button
       type={type}
-      onClick={onClick}
+      onClick = {onClickButton}
       className={`button ${className}`}
     >
       {name}

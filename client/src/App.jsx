@@ -1,15 +1,9 @@
 import React from 'react';
-import HeroHeader from './components/HeroHeader.jsx'
-import HeroFooter from './components/HeroFooter.jsx'
-import HeroSection from './components/HeroSection.jsx'
+import HeroPage from './pages/HeroPage.jsx'
 
 function App() {
 	return(
-	<div className = "heroPage"> 
-		<HeroHeader></HeroHeader>
-		<HeroSection></HeroSection>
-		<HeroFooter></HeroFooter>
-	</div>
+		<HeroPage></HeroPage>
 	)
 }
 
