@@ -1,6 +1,8 @@
-/* variable.css */
+/* variables.css */
 
 :root {
+	--header-height: 50px;
+
   /* === Foundation Colors === */
   --color-bg: #f7f4ed;             /* Paper White / Background */
   --color-text: #0D0D0D;           /* Main Text */
@@ -8,10 +10,18 @@
   --color-divider: #E0E0E0;        /* Light Grey Divider */
 
   /* === Accent Colors === */
+  --color-white: #ffffff;
   --color-primary: #32378C;        /* Deep Blue - Headings / Primary */
   --color-secondary: #F2AA52;      /* Gold - Secondary Highlights */
   --color-accent: #F2811D;         /* Orange - Buttons / CTAs */
   --color-danger: #F25A38;         /* Coral Red - Alerts */
+
+  /* === Navigation Colors === */
+  --nav-bg: var(--color-white);
+  --nav-text: var(--color-text-secondary);
+  --nav-text-active: var(--color-text);
+  --nav-hover-bg: rgba(0, 0, 0, 0.04);
+  --nav-divider: var(--color-divider);
 
   /* === Font System === */
   --font-heading: "Playfair Display", "Georgia", serif;
