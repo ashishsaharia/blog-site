@@ -1,4 +1,5 @@
 import HeroHeader from '../components/HeroHeader.jsx'
+import { FaFacebook, FaLinkedin } from 'react-icons/fa';
 import HeroFooter from '../components/HeroFooter.jsx'
 import HeroSection from '../components/HeroSection.jsx'
 import { useAuth0 } from "@auth0/auth0-react";
@@ -39,20 +40,12 @@ const HeroPage = () => {
 		</button>
 
 		<button className="joinButton" onClick={loginWithRedirect}>
-		<img
-		src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
-		alt="Facebook logo"
-		className="googleLogo"
-		/>
+		<FaFacebook size={25} color="#1877F2" /> {/* Facebook blue */}
 		Continue with Facebook
 		</button>
 
 		<button className="joinButton" onClick={loginWithRedirect}>
-		<img
-		src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
-		alt="LinkedIn logo"
-		className="googleLogo"
-		/>
+		<FaLinkedin size={25} color="#0A66C2" /> {/* LinkedIn blue */}
 		Continue with LinkedIn
 		</button>
 

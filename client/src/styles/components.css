@@ -21,6 +21,8 @@
   background-color: black;
   border-radius: var(--border-radius);
   color: white;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .get-start-button-one {
@@ -147,9 +149,13 @@
 }
 
 .dialogHeading {
-  font-weight: 200;
-  align-self: center;
-  margin-top: -5px;
+	padding-left : 35px; 
+	padding-right : 35px;
+	padding-bottom : 10px;
+	font-weight: 200;
+	align-self: center;
+	margin-top: -5px;
+	border-bottom: solid black 0.5px;
 }
 
 /* ===========================
