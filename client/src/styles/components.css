@@ -448,4 +448,174 @@
   color: var(--color-text);
   margin-bottom: 0.5rem;
 }
+/* blog.css */
 
+.post-card {
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb; /* border-border equivalent */
+  padding: 1.5rem 0;
+  transition: all 0.3s;
+}
+
+.post-card:hover {
+  background-color: rgba(240, 241, 245, 0.615); 
+  /* hover:bg-muted/30 */
+}
+
+.post-card-content {
+  display: flex;
+  gap: 1rem;
+}
+
+.post-card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-card-byline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280; /* text-muted-foreground */
+}
+
+.avatar-small {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #c1c7d1a9;
+  border-radius: 50%;
+}
+
+.badge-verified {
+  width: 1rem;
+  height: 1rem;
+  color: #3b82f6; /* text-primary */
+}
+
+.post-card-title {
+  margin-top: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #111827; /* text-foreground */
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.post-card-title:hover {
+  color: #3b82f6; /* hover:text-primary */
+}
+
+.post-card-subtitle {
+  margin-top: 0.5rem;
+  color: #6b7280;
+}
+
+.post-card-meta {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  /* margin-left: 1rem; */
+}
+
+.meta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.meta-button:hover {
+  color: #111827;
+}
+
+.heart-icon {
+  width: 1rem;
+  height: 1rem;
+  transition: all 0.3s;
+  fill: none;
+  color: inherit;
+}
+
+.heart-icon.liked {
+  fill: #ef4444;
+  color: #ef4444;
+}
+
+.heart-icon.animate-like {
+  transform: scale(1.25);
+}
+
+.meta-time {
+  white-space: nowrap;
+}
+
+.meta-views {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.meta-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.post-card-thumbnail {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .post-card-thumbnail {
+    display: block;
+    width: 11rem;
+    height: 7rem;
+    border-radius: 0.375rem;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .post-card-thumbnail:hover {
+    transform: scale(1.05);
+  }
+}
+
+.post-card-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-button:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.1);
+  border-radius: 0.375rem;
+}
+
+.bookmarked {
+  color: #3b82f6;
+}
+
+.bookmarked-icon {
+  fill: currentColor;
+}
+
+.action-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
