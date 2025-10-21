@@ -4,7 +4,7 @@ const HomeNavigationMenu = ({ isOpen }) => {
   return (
     <nav className={`homeNavBar ${isOpen ? "open" : "collapsed"}`}>
       <div className="navButtons">
-        <div className="homeNavButton" >
+        <div className="homeNavButton active">
           <Home className="navIcon" />
           <span>Home</span>
         </div>
