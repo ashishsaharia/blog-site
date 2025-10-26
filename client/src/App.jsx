@@ -1,6 +1,8 @@
 import React from 'react';
 import HeroPage from './pages/HeroPage.jsx'
-import Home from './pages/Home.jsx'
+import	HomeNavigationMenu from './components/HomeNavigationMenu.jsx' 
+import HomePageHeader from './components/HomePageHeader.jsx'	
+import HomePage from './pages/Home'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -11,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HeroPage />} />
           {/* <Route path="/blog/:id" element={<Blog />} /> */}
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<HomePage />} />
           {/* <Route path="/publish" element={<Publish />} /> */}
         </Routes>
       </BrowserRouter>
