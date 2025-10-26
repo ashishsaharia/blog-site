@@ -1,5 +1,4 @@
 import  MediumPostCard  from "../components/blog";
-
 export default function Home() {
     return(
         <>
