@@ -2,7 +2,7 @@ import React from 'react';
 import HeroPage from './pages/HeroPage.jsx'
 import	HomeNavigationMenu from './components/HomeNavigationMenu.jsx' 
 import HomePageHeader from './components/HomePageHeader.jsx'	
-import HomePage from './pages/Home'
+import HomePage from './pages/HomePage.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
