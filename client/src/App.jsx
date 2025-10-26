@@ -4,6 +4,7 @@ import	HomeNavigationMenu from './components/HomeNavigationMenu.jsx'
 import HomePageHeader from './components/HomePageHeader.jsx'	
 import HomePage from './pages/HomePage.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ProfilePage from './pages/ProfilePage.jsx';
 
 function App() {
 	return(
@@ -15,6 +16,7 @@ function App() {
           {/* <Route path="/blog/:id" element={<Blog />} /> */}
           <Route path="/home" element={<HomePage />} />
           {/* <Route path="/publish" element={<Publish />} /> */}
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
 		</div>
