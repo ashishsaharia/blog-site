@@ -289,8 +289,107 @@ postRouter.post('/post', async (req, res) => {
 });
 
 
+// ============================================
+// PUT /api/posts/:id - Update a post
+// ============================================
+postRouter.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      title,
+      slug,
+      content,
+      coverImage,
+      contentImage,
+      readTime,
+    } = req.body;
+
+    // Check if post exists
+    const existingPost = await prisma.post.findUnique({
+      where: { id:id },
+    });
+
+    if (!existingPost) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
+    // If slug is being changed, check for uniqueness
+    if (slug && slug !== existingPost.slug) {
+      const slugExists = await prisma.post.findUnique({
+        where: { slug },
+      });
+
+      if (slugExists) {
+        return res.status(400).json({ error: 'Slug already exists' });
+      }
+    }
+
+    const updatedPost = await prisma.post.update({
+      where: { id: parseInt(id) },
+      data: {
+        ...(title && { title }),
+        ...(slug && { slug }),
+        ...(content && { content }),
+        ...(coverImage !== undefined && { coverImage }),
+        ...(contentImage !== undefined && { contentImage }),
+        ...(readTime && { readTime: parseInt(readTime) }),
+      },
+      include: {
+        author: {
+          select: {
+            id: true,
+            username: true,
+            name: true,
+            profileImage: true,
+          },
+        },
+      },
+    });
+
+    res.json(updatedPost);
+  } catch (error) {
+    // Handle unique constraint error for slug
+    if (error.code === 'P2002' && error.meta?.target?.includes('slug')) {
+      return res.status(400).json({
+        error: 'Slug already exists. Try a different title or slug.',
+      });
+    }
+
+    res.status(500).json({ error: 'Failed to update post', message: error.message });
+  }
+});
 
 
+// ============================================
+// DELETE /api/posts/:id - Delete a post
+// ============================================
+postRouter.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Check if post exists
+    const existingPost = await prisma.post.findUnique({
+      where: { id: id },
+    });
+
+    if (!existingPost) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
+    // Delete post (cascade will handle comments and likes)
+    await prisma.post.delete({
+      where: { id: id },
+    });
+
+    res.json({ message: 'Post deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete post', message: error.message });
+  }
+});
+
+
+
+module.exports = router;
 
 
 export default postRouter;
