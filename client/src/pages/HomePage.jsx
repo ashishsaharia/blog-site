@@ -3,42 +3,69 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import HomePageHeader from "../components/HomePageHeader";
 import HomeNavigationMenu from "../components/HomeNavigationMenu";
-import axios from "axios"; // for API calls
+import MediumPostCard from "../components/blog";
+import axios from "axios";
+
+const SkeletonPostCard = () => (
+  <div className="skeleton-post-card">
+    <div className="skeleton-thumbnail"></div>
+    <div className="skeleton-lines">
+      <div className="skeleton-line short"></div>
+      <div className="skeleton-line long"></div>
+    </div>
+  </div>
+);
 
 const HomePage = () => {
+  const postsPath = "http://localhost:5000/posts/getposts";
   const navigate = useNavigate();
   const [isNavOpen, setIsNavOpen] = useState(true);
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const [posts, setPosts] = useState([]);
+  const [loadingPosts, setLoadingPosts] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Function to create the user in your backend
   const createUserIfNotExists = async (user) => {
     try {
-      const response = await axios.post("http://localhost:5000/auth/createUser", {
+      await axios.post("http://localhost:5000/auth/createUser", {
         name: user.name,
         email: user.email,
         username: user.nickname || user.email.split("@")[0],
         profileImage: user.picture,
       });
-
-      console.log("User creation response:", response.data);
     } catch (error) {
       console.error("Error creating user:", error.response?.data || error.message);
     }
   };
 
-  // Redirect and auto-create user
   useEffect(() => {
     if (!isLoading) {
       if (!isAuthenticated) {
-        navigate("/"); // redirect to HeroPage if not logged in
+        navigate("/");
       } else {
-        createUserIfNotExists(user); // create user automatically if authenticated
+        createUserIfNotExists(user);
       }
     }
   }, [isLoading, isAuthenticated, navigate, user]);
 
-  if (isLoading) return <div>Loading....</div>;
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setLoadingPosts(true);
+        const response = await axios.get(postsPath);
+        setPosts(response.data.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoadingPosts(false);
+      }
+    };
+    fetchPosts();
+  }, []); // fetch only once
+
+  if (isLoading) return <div>Loading...</div>;
   if (!isAuthenticated) return null;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="homeLayout">
@@ -46,7 +73,33 @@ const HomePage = () => {
       <div className="homeContentArea">
         <HomeNavigationMenu isOpen={isNavOpen} />
         <main className="homeMainContent">
-          {/* Add your feed or articles here */}
+          {loadingPosts ? (
+            <>
+              <SkeletonPostCard />
+              <SkeletonPostCard />
+              <SkeletonPostCard />
+            </>
+          ) : posts.length > 0 ? (
+            posts.map((post) => (
+              <MediumPostCard
+                key={post.id}
+                publication="Your Blog"
+                author={post.author?.name || "Unknown"}
+                verified={true}
+                title={post.title}
+                subtitle={post.content?.slice(0, 120) + "..."}
+                date={new Date(post.createdAt).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                })}
+                views={`${post._count.likes} likes`}
+                comments={`${post._count.comments} comments`}
+                thumbnailSrc={post.author?.profileImage || "https://via.placeholder.com/150"}
+              />
+            ))
+          ) : (
+            <p>No posts available</p>
+          )}
         </main>
       </div>
     </div>
@@ -54,3 +107,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+

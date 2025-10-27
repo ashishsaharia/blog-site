@@ -1,27 +1,38 @@
-import React, { useEffect } from 'react';
-import HeroPage from './pages/HeroPage.jsx';
-import HomePage from './pages/HomePage.jsx';
-import ProfilePage from './pages/ProfilePage.jsx';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
-// Wrapper so we can use hooks like useNavigate inside
+import HeroPage from "./pages/HeroPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
+import CreatePostPage from "./pages/CreatePost.jsx";
+import NewsletterPage from "./pages/Newsletter.jsx";
+
 function AppRoutes() {
   const navigate = useNavigate();
-  const { isLoading, handleRedirectCallback } = useAuth0();
+  const { isLoading, isAuthenticated, handleRedirectCallback } = useAuth0();
 
   useEffect(() => {
-    const handleAuthRedirect = async () => {
-      const result = await handleRedirectCallback();
-      const target = result?.appState?.returnTo || "/";
-      navigate(target, { replace: true });
+    const processRedirect = async () => {
+      try {
+        const result = await handleRedirectCallback();
+        const target = result?.appState?.returnTo || "/home";
+        navigate(target, { replace: true });
+      } catch (err) {
+        console.error("Redirect error:", err);
+      }
     };
 
-    // only run if Auth0 redirected back with ?code=
     if (window.location.search.includes("code=")) {
-      handleAuthRedirect();
+      processRedirect();
     }
   }, [handleRedirectCallback, navigate]);
+
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      navigate("/");
+    }
+  }, [isLoading, isAuthenticated, navigate]);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -30,6 +41,8 @@ function AppRoutes() {
       <Route path="/" element={<HeroPage />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/create-post" element={<CreatePostPage />} />
+      <Route path="/newsletters" element={<NewsletterPage />} />
     </Routes>
   );
 }
@@ -43,3 +56,4 @@ function App() {
 }
 
 export default App;
+
