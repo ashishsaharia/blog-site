@@ -1987,3 +1987,50 @@
     width: 100%;
   }
 }
+
+
+
+
+.skeleton-post-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #f3f3f3;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-thumbnail {
+  width: 120px;
+  height: 80px;
+  border-radius: 10px;
+  background: #ddd;
+}
+
+.skeleton-lines {
+  flex: 1;
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: #ddd;
+  margin-bottom: 10px;
+}
+
+.skeleton-line.short {
+  width: 40%;
+}
+
+.skeleton-line.long {
+  width: 80%;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
