@@ -10,21 +10,7 @@ postRouter.get("/", (req, res) => {
   res.send("Posts route is working!");
 });
 
-postRouter.post("/addusertodb", async (req, res) => {
-  const { name, email, username } = req.body;
-  try {
-    const user = await prisma.user.create({
-      data: {
-        username,
-        name,
-        email,
-      },
-    });
-    res.status(201).json(user);
-  } catch (error) {
-    res.status(500).json({ error: error});
-  }
-});
+
 
 
 postRouter.get('/getposts', async (req, res) => {
@@ -325,7 +311,7 @@ postRouter.put('/:id', async (req, res) => {
     }
 
     const updatedPost = await prisma.post.update({
-      where: { id: parseInt(id) },
+      where: { id: id},
       data: {
         ...(title && { title }),
         ...(slug && { slug }),
@@ -389,7 +375,7 @@ postRouter.delete('/:id', async (req, res) => {
 
 
 
-module.exports = router;
+
 
 
 export default postRouter;
