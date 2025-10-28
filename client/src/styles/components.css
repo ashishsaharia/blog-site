@@ -1489,7 +1489,7 @@
   .create-header-actions {
     gap: 1rem;
   }
-
+  
   .btn-publish {
     padding: 0.4rem 0.875rem;
     font-size: var(--text-xs);

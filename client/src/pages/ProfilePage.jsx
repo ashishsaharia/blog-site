@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import HomePageHeader from '../components/HomePageHeader';
+import HomeNavigationMenu from '../components/HomeNavigationMenu';
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState('home');
+
+  const [isNavOpen, setIsNavOpen] = useState(true);
 
   const articles = [
     {
@@ -30,7 +34,7 @@ export default function ProfilePage() {
   return (
     <div className="profile-page">
       {/* Header */}
-      <header className="header">
+      {/* <header className="header">
         <div className="header-container">
           <div className="header-content">
             <a href="#" className="logo">Medium</a>
@@ -41,7 +45,11 @@ export default function ProfilePage() {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
+      <HomePageHeader onMenuClick={() => setIsNavOpen(!isNavOpen)} />
+        <div className={`homeNavigationMenu ${isNavOpen ? "" : "closed"}`}>
+    <HomeNavigationMenu isOpen={isNavOpen} />
+    </div>  
 
       {/* Profile Section */}
       <div className="profile-section">

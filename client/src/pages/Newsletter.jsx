@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Upload, X, FileText, Calendar, Eye } from 'lucide-react';
+import HomePageHeader from '../components/HomePageHeader';
+import HomeNavigationMenu from '../components/HomeNavigationMenu';
 
 export default function NewsletterPage() {
   const [showUploadModal, setShowUploadModal] = useState(false);
@@ -35,6 +37,8 @@ export default function NewsletterPage() {
     description: '',
     file: null
   });
+
+  const [isNavOpen, setIsNavOpen] = useState(true);
 
   const handleFileSelect = (e) => {
     const file = e.target.files[0];
@@ -77,7 +81,7 @@ export default function NewsletterPage() {
   return (
     <div className="newsletter-page">
       {/* Header */}
-      <header className="newsletter-header">
+      {/* <header className="newsletter-header">
         <div className="newsletter-header-container">
           <div className="newsletter-header-content">
             <a href="#" className="logo">Medium</a>
@@ -94,11 +98,28 @@ export default function NewsletterPage() {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
+
+      <HomePageHeader onMenuClick={() => setIsNavOpen(!isNavOpen)} />
+        <div className={`homeNavigationMenu ${isNavOpen ? "" : "closed"}`}>
+    <HomeNavigationMenu isOpen={isNavOpen} />
+    </div>  
+
 
       {/* Main Content */}
       <div className="newsletter-main">
         <div className="newsletter-container">
+<div className="newsletter-header-actions">
+              <button className="btn-upload" onClick={() => setShowUploadModal(true)}>
+                <Upload size={16} />
+                <span>Upload Newsletter</span>
+              </button>
+              {/* <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop"
+                alt="Profile"
+                className="newsletter-profile-avatar"
+              /> */}
+            </div>
           <div className="newsletter-hero">
             <h1 className="newsletter-title">Newsletters</h1>
             <p className="newsletter-subtitle">

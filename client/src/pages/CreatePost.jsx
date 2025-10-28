@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Plus, Image, Code, Link2, Bold, Italic, ListOrdered, List, Quote, Minus } from 'lucide-react';
+import HomePageHeader from '../components/HomePageHeader';
+import HomeNavigationMenu from '../components/HomeNavigationMenu';
 
 export default function CreatePostPage() {
   const [title, setTitle] = useState('');
@@ -8,6 +10,8 @@ export default function CreatePostPage() {
   const [showInsertMenu, setShowInsertMenu] = useState(false);
   const contentRef = useRef(null);
   const fileInputRef = useRef(null);
+    const [isNavOpen, setIsNavOpen] = useState(true);
+
 
   useEffect(() => {
     console.log('Insert menu state:', showInsertMenu);
@@ -140,7 +144,7 @@ export default function CreatePostPage() {
   return (
     <div className="create-post-page">
       {/* Header */}
-      <header className="create-header">
+      {/* <header className="create-header">
         <div className="create-header-container">
           <div className="create-header-content">
             <a href="#" className="logo">Medium</a>
@@ -156,11 +160,23 @@ export default function CreatePostPage() {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
+
+      <HomePageHeader onMenuClick={() => setIsNavOpen(!isNavOpen)} />
+        <div className={`homeNavigationMenu ${isNavOpen ? "" : "closed"}`}>
+    <HomeNavigationMenu isOpen={isNavOpen} />
+    </div> 
+
 
       {/* Editor Container */}
       <div className="editor-container">
         <div className="editor-content">
+    <div className="create-header-actions">
+              <button className="btn-publish" onClick={handlePublish}>
+                Publish
+              </button>
+  
+            </div>
           {/* Title Input */}
           <textarea
             className="editor-title"
