@@ -41,7 +41,7 @@ function AppRoutes() {
       <Route path="/" element={<HeroPage />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/create-post" element={<CreatePostPage />} />
+      <Route path="/publish" element={<CreatePostPage />} />
       <Route path="/newsletters" element={<NewsletterPage />} />
     </Routes>
   );

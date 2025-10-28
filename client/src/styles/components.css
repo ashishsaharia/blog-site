@@ -284,14 +284,29 @@
 =========================== */
 .homeContentArea {
   display: flex;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  inset: 0;
 }
 
 .homeMainContent {
-  flex: 1;
+  flex:1;
   padding: 2rem;
   transition: margin-left 0.3s ease-in-out;
 }
+
+
+.homeNavigationMenu {
+  /* width: px; or your sidebar width */
+  transition: width 0.3s ease-in-out;
+}
+
+.homeNavigationMenu.closed {
+  width: 0;
+  overflow: hidden;
+}
+
 
 /* ===========================
    NAVIGATION SIDEBAR
@@ -455,16 +470,22 @@
   border-bottom: 1px solid #e5e7eb; /* border-border equivalent */
   padding: 1.5rem 0;
   transition: all 0.3s;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
 }
 
 .post-card:hover {
-  background-color: rgba(240, 241, 245, 0.615); 
+  /* background-color: rgba(240, 241, 245, 0.615);  */
   /* hover:bg-muted/30 */
 }
 
 .post-card-content {
   display: flex;
   gap: 1rem;
+  
 }
 
 .post-card-text {

@@ -49,19 +49,28 @@ const HomePage = () => {
   }, [isLoading, isAuthenticated, navigate, user]);
 
   useEffect(() => {
+    const controller = new AbortController();
     const fetchPosts = async () => {
       try {
         setLoadingPosts(true);
-        const response = await axios.get(postsPath);
+        const response = await axios.get(postsPath, { signal: controller.signal });
         setPosts(response.data.data);
       } catch (err) {
-        setError(err.message);
+        if (err.name === "CanceledError") {
+          console.log("Fetch aborted");
+        } else {
+          setError(err.message);
+        }
       } finally {
         setLoadingPosts(false);
       }
     };
+
     fetchPosts();
-  }, []); // fetch only once
+
+    // Cleanup: cancel request if component unmounts
+    return () => controller.abort();
+  }, [postsPath]);
 
   if (isLoading) return <div>Loading...</div>;
   if (!isAuthenticated) return null;
@@ -71,7 +80,9 @@ const HomePage = () => {
     <div className="homeLayout">
       <HomePageHeader onMenuClick={() => setIsNavOpen(!isNavOpen)} />
       <div className="homeContentArea">
-        <HomeNavigationMenu isOpen={isNavOpen} />
+        <div className={`homeNavigationMenu ${isNavOpen ? "" : "closed"}`}>
+    <HomeNavigationMenu isOpen={isNavOpen} />
+  </div>
         <main className="homeMainContent">
           {loadingPosts ? (
             <>
@@ -94,7 +105,7 @@ const HomePage = () => {
                 })}
                 views={`${post._count.likes} likes`}
                 comments={`${post._count.comments} comments`}
-                thumbnailSrc={post.author?.profileImage || "https://via.placeholder.com/150"}
+                thumbnailSrc={post.coverImage}
               />
             ))
           ) : (
@@ -107,4 +118,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
