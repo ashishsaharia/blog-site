@@ -8,7 +8,9 @@ const HomePageHeader = ({ onMenuClick }) => {
           <FiMenu size={20} />
         </button>
 
-        <h1 className="logo">BMU Blog</h1>
+
+        <h1 className="logo">Bmu Blog</h1>
+
 
         <div className="search-container">
           <FiSearch className="search-icon" />
